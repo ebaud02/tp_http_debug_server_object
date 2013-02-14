@@ -2,9 +2,9 @@ require '~/Appli_web/HTTP_debug_server/http_debug_server_object.rb'
 
 describe Response do
 	context "when just created" do
-		its(:version) {should_not be_empty}
-		its(:response_code) {should_not be_empty}
-		its(:meaning_code) {should_not be_empty}
+		its(:version) {should be_empty}
+		its(:code) {should be_empty}
+		its(:code_message) {should be_empty}
 	end
 
    describe "validation" do
@@ -24,5 +24,16 @@ describe Response do
 		end
 	end
    end
+
+   it "should write parameter given" do
+	subject.write.with("toto").should == "toto"
+   end
+
+   it "should be a string" do
+	test = "this is a test."
+	subject.to_s.with(test).should == "this is a test."
+   end
+	
+   
 
 end
