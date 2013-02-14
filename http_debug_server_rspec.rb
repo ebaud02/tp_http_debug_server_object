@@ -12,14 +12,14 @@ describe Request do
 		@request = mock(Request)
 	end
 
-	context "should have filled headers" do
+	context "should have filled request line" do
 		it "is valid" do
 			@request.should_be_valid
 		end
 
 	end
 
-	context "with empty headers" do
+	context "with empty request line" do
 		it "should not be valid" do
 			@request.should_not_be_valid
 		end
